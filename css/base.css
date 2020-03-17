@@ -1,0 +1,134 @@
+body {
+    background-color: #2d2f2e;
+    color: #fffff9;
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center
+}
+
+p {
+    text-indent: 2em;
+    font-size: 17px;
+}
+
+ul {
+    list-style: none;
+    margin-left: -2.5em;
+}
+
+li {
+    margin-bottom: .5em;
+}
+
+img {
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+    max-width: 80%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #ff926e;
+}
+
+a:visited {
+    color: #ff926e;
+}
+
+a:hover {
+    color: #ffd5b5;
+}
+
+pre {
+    text-indent: 0em;
+}
+
+.div-block {
+    width: 595px;
+    margin: auto;
+}
+
+.heading {
+    padding: 2em 0;
+}
+
+.seperator {
+    width: 20%;
+    height: .1em;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    background-color: #ff926e;
+}
+
+.date {
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: -1em;
+}
+
+.first-paragraph {
+    text-indent: 0;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.contact-info p {
+    text-indent: 0;
+    margin-top: -1em;
+}
+
+.figure-text {
+    text-align: center;
+    text-indent: 0;
+    width: 60%;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.introduction {
+    text-align: justify;
+}
+
+.posts-board {
+    text-align: center;
+    margin: auto 2em;
+    padding-top: 1em;
+}
+
+.posts-board div {
+    padding-bottom: 2em;
+}
+
+.posts-board div img {
+    width: 30vw;
+    min-width: 7em;
+}
+
+.references h4 {
+    margin-bottom: .5em;
+}
+
+.footer {
+    padding: 2em 0;
+    text-align: center;
+    /* background-color: #242625; */
+}
+
+::selection {
+  background: #b88e65; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #b88e65; /* Gecko Browsers */
+}

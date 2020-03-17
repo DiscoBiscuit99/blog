@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../../css/base.css">
+
+    <title>Mandelbrot | Blog of Mathematics, Computer Science & Physics</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <!-- Headline -->
+    <div class="div-block heading">
+        <h1>Mandelbrot</h1>
+        <div class="seperator"></div>
+        <div class="date">March 2020</div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="div-block introduction">
+        <p class="first-paragraph">
+            The Mandelbrot set is probably the most well known fractal of all and
+            is named after the discoverer of fractals, Bernoit Mandelbrot himself.
+            The Mandelbrot set is defined as the complex numbers \( c \) for which
+            the recursive function \( z_{n+1} = z_n^2 + c \) converges when iterated
+            from \( z = 0 \); if a value diverges, it breaks the bounds of the fractal
+            and is thus not part of the set.
+        </p>
+        <p>
+            Given the function, a few things may be noted. The first thing that should
+            be noted is that \( z \) is a complex number meaning that it has both
+            a real and an imaginary component and thus can be expressed as follows
+            (\( x_0 \) and \( y_0 \) being the starting values):
+        </p>
+        $$
+        z = x + iy
+        $$
+        $$
+        z^2 = x^2 + i2xy - y^2
+        $$
+        $$
+        c = x_0 + iy_0
+        $$
+        <p>
+            The real component of the function, meaning \( \Re(z^2 + c) = x^2 - y^2 + x_0 \),
+            can then be graphed along the x-axis and the imaginary component, meaning
+            \( \Im(z^2 + c) = 2xy + y_0 \), graphed along the y-axis, the color or
+            shading being determined by the number of iterations. Doing this will
+            result in an image, or graph, as follows, this being the Mandelbrot set.
+            The image can be seen below, figure 1.
+        </p>
+
+        <img src="../../../../assets/images/mandelbrot/mandelbrot2.png" alt="image one of mandelbrot set">
+        <p class="figure-text">Figure 1: Image of the Mandelbrot set.</p>
+
+        <img src="../../../../assets/images/mandelbrot/mandelbrot3.png" alt="image two of mandelbrot set">
+        <p class="figure-text">Figure 2: Slightly different image of the Mandelbrot set.</p>
+
+        <p>
+            The Processing (Java) code for generating the image in figure 1 can be
+            seen below.
+        </p>
+
+        <pre><code>
+        int n_max = 200;
+        float s = 4;
+
+        int bound = 2;
+
+        void setup() {
+          size(1050, 1050);
+        }
+
+        void draw() {
+          background(0);
+          int k = 0;
+          loadPixels();
+          for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; i++) {
+              //float x0 = map(i, 0+200, width+200, -.625*4, .25*4);
+              //float y0 = map(j, 0+200, height+200, -.3525*4, .3525*4);
+              float x0 = map(i, 0-40, width-40, -.58*s, .15*s);
+              float y0 = map(j, 0, height, -.3525*s, .3525*s);
+
+              float x = 0.0;
+              float y = 0.0;
+
+              int n = 0;
+              for (int u = n_max; u > 1; u--) {
+                while (x*x + y*y <= 4 && n < n_max/u) {
+                  float x_temp = x*x - y*y + x0;
+                  y = 2*x*y + y0;
+                  x = x_temp;
+                  n++;
+                }
+
+                //if (x*x + y*y <= bound) {
+                if (x*x + 2*x*y - y*y <= bound) {
+                  pixels[k] =
+                      color(map(255 * n/n_max, 255*1/n_max, 95, 0, 255));
+                }
+              }
+
+              k++;
+            }
+          }
+          updatePixels();
+        }
+        </code></pre>
+    </div>
+
+    <div class="div-block">
+        <div class="references">
+            <h4>References</h4>
+            <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">https://en.wikipedia.org/wiki/Mandelbrot_set</a>
+            <br>
+            <a href="http://renatofonseca.net/mandelbrotset.php">http://renatofonseca.net/mandelbrotset.php</a>
+        </div>
+    </div>
+
+    <div class="div-block">
+        <div class="footer">
+            Valdemar Høgsvig Lorenzen &copy; 2020
+        </div>
+    </div>
+</body>
+</html>

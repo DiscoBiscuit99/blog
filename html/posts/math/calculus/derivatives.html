@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../../css/base.css">
+
+    <title>Differential Calculus | Blog of Mathematics, Computer Science & Physics</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <!-- Headline -->
+    <div class="div-block heading">
+        <h1>Differential Calculus</h1>
+        <div class="seperator"></div>
+        <div class="date">
+            March 2020
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="div-block introduction">
+        <p class="first-paragraph">
+            Simply put, differential calculus is all about finding the slope of a
+            function also called the derivative (since it is derived from the function,
+            but more on that later). That is, the limit where two points on the
+            function meet as some value, say \( \Delta x \) (the difference along
+            the x-axis), approaches 0. This can be easily visualized as seen in the
+            following figures (figures 1 through 4).
+        </p>
+        <img src="../../../../assets/images/derivatives/figure1.png" alt="figure of limit">
+        <p class="figure-text">Figure 1: Limit of function \( f(x) = e^{\frac{1}{2} x} \). Two points on the function connected by a line (the soon-to-be tangent line).</p>
+
+        <img src="../../../../assets/images/derivatives/figure2.png" alt="figure of limit">
+        <p class="figure-text">Figure 2: Limit of function \( f(x) = e^{\frac{1}{2} x} \).
+            The two points are moving closer together, thus approximating the tangent line (or slope) better and better.</p>
+
+        <img src="../../../../assets/images/derivatives/figure3.png" alt="figure of limit">
+        <p class="figure-text">Figure 3: Limit of function \( f(x) = e^{\frac{1}{2} x} \).
+            The two points are now almost overlapping and it is clear that a tangent to the function in that point is forming.</p>
+
+        <p>
+            This can be achieved algebraically with the notation for the limit,
+            namely: \( \lim_{\Delta x \rightarrow 0} \frac{f(x + \Delta x) - f(x)}{\Delta x} \).
+            To derive this formula from scratch, it is necessary to articulate each
+            component of the expression. There are, in general, three steps to follow.
+            The first step is to find the growth of the function, the next is to
+            find the quotient of difference, and the last step is to find the differential
+            quotient. These steps will be explained in the next couple of paragraphs.
+        </p>
+        <p>
+            The growth of the function can be simply found by letting a function
+            \( f(x) \) grow by a \( \Delta x \) and thus, when subtracting the two
+            values, a difference, or growth, is obtained. Expressing this thought
+            in symbols will look as follows:
+        </p>
+        $$ \Delta y = \Delta f(x) = f(x + \Delta x) - f(x) $$
+        <p>
+            Now, the next step is to find the quotient of difference. This simply
+            means the ratio that \( f(x) \) increases as \( x \) grows bigger in
+            linear terms; put differently, the rise over run. The rise over run
+            expressed in symbols, with the growth of the function in mind, looks
+            as follows:
+        </p>
+        $$ \frac{\Delta y}{\Delta x} = \frac{f(x + \Delta x) - f(x)}{\Delta x} $$
+        <p>
+            Lastly, the differential quotient is considered. The differential quotient
+            is simply the limit of the quotient of difference when \( \Delta x \)
+            approaches 0. This is exactly what the initial expression expresses and
+            it has many conventional notations, and thus the differential quotient
+            is:
+        </p>
+        $$
+        \lim_{\Delta x \rightarrow 0} \frac{\Delta y}{\Delta x} =
+        \lim_{\Delta x \rightarrow 0} \frac{f(x + \Delta x) - f(x)}{\Delta x} \Rightarrow
+        \frac{dx}{dy} = f'(x)
+        $$
+        <p>
+            This gives us the tangent, or slope, in that specific point on the function
+            curve. Differentiating a simple function will always yield an outcome
+            of \( n \cdot a \cdot x^{n-1} \), where \( a \cdot x^n \) is the original
+            function (\( a \) being the slope and \( x \) being the dependent variable),
+            which makes it easy to calculate using only one's head. Other rules apply
+            for other combinations of functions. These other rules will be explained
+            further in this article as well.
+        </p>
+
+        <!-- The Product Rule -->
+        <div class="heading">
+            <h2>The Product Rule</h2>
+            <div class="seperator"></div>
+        </div>
+        <p class="first-paragraph">
+            Suppose we have a function \( f(x) = g(x) \cdot h(x) \) of which we want
+            to find the derivative. It is possible to go through the three steps
+            and find a general rule for such a function, which will make it easier
+            to calculate in future scenarios. Again we go throught the three steps,
+            the first being the function growth:
+        </p>
+        $$
+        \Delta y = f(x + \Delta x) - f(x) =
+        g(x + \Delta x) \cdot h(x + \Delta x) - g(x) \cdot h(x)
+        $$
+        <p>
+            Now, the next step is again to find the quotient of difference and as
+            we know, that is found by dividing the quotient of difference with the
+            difference along the x-axis.
+        </p>
+        $$
+        \frac{\Delta y}{\Delta x} =
+        \frac{g(x + \Delta x) \cdot h(x + \Delta x) - g(x) \cdot h(x)}{\Delta x}
+        $$
+        <p>
+            Now we add a complicated "0" in the numerator, meaning a value that amounts
+            to nothing, including the variables in question. The "0" looks as follows:
+        </p>
+        $$
+        0 = g(x) \cdot h(x + \Delta x) - g(x) \cdot h(x + \Delta x)
+        $$
+        <p>
+            Added to the enumerator, it looks like so:
+        </p>
+        $$
+        \frac{\Delta y}{\Delta x} =
+        \frac{g(x + \Delta x) \cdot h(x + \Delta x) - g(x) \cdot h(x) + g(x) \cdot h(x + \Delta x) - g(x) \cdot h(x + \Delta x)}{\Delta x}
+        $$
+        <p>
+            And rearanged:
+        </p>
+        $$
+        \frac{\Delta y}{\Delta x} =
+        \frac{[g(x + \Delta x) - g(x)] \cdot h(x + \Delta x) + g(x) \cdot [h(x + \Delta x) - h(x)]}{\Delta x}
+        $$
+        <p>
+            Now seperated to be easilier readable and ready for differentiating:
+        </p>
+        $$
+        \frac{g(x + \Delta x) - g(x)}{\Delta x} \cdot h(x + \Delta x) + g(x) \cdot \frac{h(x + \Delta x) - h(x)}{\Delta x}
+        $$
+        <p>
+            The last step is now finding the differential quotient meaning the limit
+            as \( \Delta x \) approaches 0. Thus:
+        </p>
+        $$
+        \lim_{\Delta x \rightarrow 0} \frac{g(x + \Delta x) - g(x)}{\Delta x} \cdot \lim_{\Delta x \rightarrow 0} h(x + \Delta x) + \lim_{\Delta x \rightarrow 0} g(x) \cdot \lim_{\Delta x \rightarrow 0} \frac{h(x + \Delta x) - h(x)}{\Delta x}
+        $$
+
+        $$
+        \Downarrow
+        $$
+
+        $$
+        f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)
+        $$
+        <p>
+            This makes it considerably easier to find the derivative of the functions
+            that can be expressed as a product of two other functions.
+        </p>
+
+        <!-- The Quotient Rule -->
+        <div class="heading">
+            <h2>The Quotient Rule</h2>
+            <div class="seperator"></div>
+            <p class="first-paragraph">
+                The quotient rule is derived much the same way the product rule was.
+                Suppose now instead that we have a function \( f(x) = \frac{g(x)}{h(x)} \)
+                of which we want to find the derivative.
+            </p>
+        </div>
+
+        <!-- The Chain Rule -->
+        <div class="heading">
+            <h2>The Chain Rule</h2>
+            <div class="seperator"></div>
+        </div>
+
+        <!-- Derivatives of Trigonometric Functions -->
+        <div class="heading">
+            <h2>Derivatives of Trigonometric Functions</h2>
+            <div class="seperator"></div>
+        </div>
+    </div>
+
+    <div class="div-block">
+        <div class="footer">
+            Valdemar Høgsvig Lorenzen &copy; 2020
+        </div>
+    </div>
+</body>
+</html>
