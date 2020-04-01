@@ -1,2 +1,4 @@
 # blog
-Mathematics, computer Science and physics blog.
+
+Math, computer Science and physics blog.
+
